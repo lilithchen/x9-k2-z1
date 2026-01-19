@@ -473,3 +473,11 @@
 	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__spot[data-v-d0fe148c],
 	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__route-summary[data-v-d0fe148c] {margin:inherit !important;}
 }
+@media screen and (max-width: 430px) {
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map {
+		margin-top: 140px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__days {
+		top: -70px;
+	}
+}
