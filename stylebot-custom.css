@@ -1,0 +1,475 @@
+/* ===== 列印分頁控制工具 ===== */
+/* 在此元素之前強制分頁 */
+.page-break {
+	page-break-before: always;
+	break-before: page;
+}
+/* 在此元素之後強制分頁 */
+.page-break-after {
+	page-break-after: always;
+	break-after: page;
+}
+/* 避免此元素內容被切斷跨頁 */
+.no-break {
+	page-break-inside: avoid;
+	break-inside: avoid;
+}
+/* ============================= */
+
+.nav_btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+	padding: 8px;
+	box-sizing: border-box;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	background: #dfe6ede3;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+}
+.nav_btn a {
+	font-family: 'Arial', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 100%;
+	background: #5e758fda;
+	color: #ffffff;
+	letter-spacing: 2px;
+	text-decoration: none;
+	padding: 0.5em;
+	flex-grow: 1;
+	text-align: center;
+	border-radius: 3px;
+}
+.nav_btn a:hover,
+.nav_btn a:focus {
+	background: #3d6da3d0;
+}
+
+.plan-detail-page__print-contents .planning-site-header,
+.plan-detail-page__print-contents .plan-detail-action-buttons {
+	display: none;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks {
+	width: 98%;
+	max-width: 1024px;
+	margin-top: 60px !important;
+}
+
+/* schedule */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule {
+	padding: 0;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map {
+	height: 269px;
+	width: 595px;
+	border-radius: 0 0 10px 10px;
+	margin-left: 429px;
+	margin-top: 80px;
+	margin-bottom: 10px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map::before {
+	content: '';
+	width: calc(100% + 429px);
+	height: 10px;
+	background: #234164;
+	display: block;
+	position: absolute;
+	left: -429px;
+	top: -10px;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map-title {
+	-webkit-text-stroke: unset;
+	-webkit-text-fill-color: #dfe6ed;
+	opacity: 0.5;
+	left: -429px;
+	top: auto;
+	bottom: -15px;
+	font-size: 100px;
+	letter-spacing: -8px;
+	font-family: 'Arial', sans-serif;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__days {
+	width: 390px;
+	bottom: auto;
+	left: -429px;
+	background: #234164;
+	border-radius: 0 0 10px 10px;
+	padding: 12px 16px 16px;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__day {
+	color: #ffffff;
+	font-size: 100px;
+	font-family: 'Arial', sans-serif;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__border--up {
+	border-bottom: 1px solid #718193;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__date {
+	font-size: 24px;
+	font-weight: 400;
+	color: #dce7f3;
+	letter-spacing: 2px;
+	font-family: 'Arial', sans-serif;
+}
+
+/* schedule__route-summary */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi {
+	grid-template-columns: 100px 26px max-content auto;
+	height: auto;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-time {
+	width: 100%;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-move {
+	grid-template-columns: 100px 56px 238px;
+}
+
+/* poi-memo */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-memo {
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: center;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-memo--inside {
+	position: relative;
+	padding: 4px 10px;
+	width: 100%;
+	line-height: 150%;
+	font-size: 13px;
+	height: auto;
+	min-height: 2.2em;
+	border: none;
+	color: #ffffff;
+	justify-content: flex-end;
+	border-radius: 5px;
+	background: linear-gradient(to right, #e1e8ef 0%, #58657a 50%);
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-memo--outside {
+	display: none;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-name {
+	font-size: 20px;
+	width: fit-content;
+	padding-right: 1em;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-numbers {
+	font-size: 14px;
+	color: #718193;
+	font-family: 'Arial', sans-serif;
+}
+
+/* detail */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__day {
+	margin-top: 1em;
+	background-color: #b7b7dd;
+	padding: 0.3em 0;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__border--up,
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__border--down {
+	border-color: #ffffff;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__subtitle {
+	color: #ffffff;
+}
+
+/* spot */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--left {
+	grid-template-columns: 90px auto;
+	grid-template-rows: 1em auto auto;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-pin {
+	filter: saturate(0.8) hue-rotate(30deg) brightness(1.5);
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-stay-time {
+	font-size: 14px;
+	color: #58657a;
+	font-weight: 500;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-info {
+	color: #6363b5;
+	line-height: 180%;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-notes {
+	padding: 8px;
+	min-height: 50px;
+	background: linear-gradient(to right, #e1e8ef 0%, #b2bbc9 80%);
+	border: none;
+	font-weight: 500;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-notes--title {
+	font-size: 13px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-notes--text {
+	font-size: 14px;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-pin-image {
+	width: 45px;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-detail {
+	font-size: 14px;
+	color: #58657a;
+	border-color: #b2bbc9;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-address--value,
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-phone--value {
+	color: #58657a;
+}
+
+/* detail__route */
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route-summary {
+	grid-template-columns: 30px auto;
+	padding: 10px;
+	background: #ededed;
+	border-bottom: 2px solid #ffffff;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route-summary-journey {
+	font-size: 16px;
+	line-height: 155%;
+	color: #607fb1;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route-summary-numerics {
+	font-size: 13px;
+	color: #888888;
+	font-weight: 500;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route {
+	padding: 0 10px;
+	background: #ededed;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route > * {
+	width: 100%;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point__from-time {
+	font-size: 14px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point__arrival--word,
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point__departure--word {
+	height: 1em;
+	width: auto;
+	padding: 0.2em 0.3em;
+	font-size: 15px;
+	line-height: 100%;
+	font-weight: 500;
+	background: #607fb1;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point,
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point__name--multilingual {
+	color: #607fb1;
+	font-size: 15px;
+	font-family: 'DINPro', sans-serif;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point__name--multilingual {
+	padding: 13px 0;
+}
+
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-point.shows-for-inbound {
+	grid-template-columns: 70px 45px auto;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move.shows-for-inbound {
+	grid-template-columns: 70px 45px auto;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__time {
+	width: 100%;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	background: #fcfcfc;
+	color: #888888;
+	border-radius: 5px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__move {
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__main {
+	padding: 4px;
+	gap: 0;
+	background: #fcfcfc;
+	border-radius: 5px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .route-line-icon {
+	display: flex;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__line-name {
+	font-size: 13px;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__self-name {
+	font-size: 13px;
+	font-weight: 600;
+}
+.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-move__destination {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--transport-color);
+}
+
+@media only screen and (max-width: 1050px) {
+	.nav_btn a {
+		font-size: 1rem;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__day {
+		font-size: 3rem;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map-title {
+		display: none;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map {
+		height: auto;
+		width: 100%;
+		aspect-ratio: 1 / 0.45;
+		margin-left: 0;
+		margin-top: 150px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map::before {
+		display: none;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__days {
+		width: 90%;
+		bottom: auto;
+		top: -80px;
+		left: 0;
+		flex-direction: row;
+		align-items: baseline;
+		gap: 0.5em;
+		border-radius: 10px 10px 0 0;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary {
+		margin-left: 10px;
+		gap: 4px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi {
+		grid-template-columns: 70px 26px max-content auto;
+		height: auto;
+		gap: 8px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-move {
+		grid-template-columns: 70px 42px 238px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__line {
+		width: 42px;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-time {
+		font-size: 0.9rem;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-name {
+		font-size: 0.95rem;
+		line-height: 150%;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-memo--inside {
+		font-size: 0.75rem;
+		min-height: 1.8em;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container {
+		gap: 12px !important;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container,
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route-summary,
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route {
+		margin-left: 1rem;
+		margin-right: 0;
+		width: calc(100% - 1rem);
+		box-sizing: border-box;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--left {
+		grid-template-columns: 70px auto;
+		width: 70%;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-stay-time {
+		font-size: 0.8em;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-info {
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--right {
+		max-width: 30%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.nav_btn a {
+		font-size: 0.9rem;
+		letter-spacing: 0;
+		padding: 0.7em 0.5em;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot {
+		margin-bottom: 20px !important;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container {
+		gap: 10px !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		margin-top: 0.5em;
+		width: 100%;
+		flex-direction: column;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route-summary,
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-detail__route {
+		margin-top: 0;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		width: 100%;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--right {
+		width: 100%;
+		max-width: 100%;
+		margin: 0 !important;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--left {
+		width: 100%;
+		grid-template-columns: 70px auto !important;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-image {
+		height: 90px;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary {
+		gap: 8px;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi {
+		grid-template-columns: 60px 26px auto auto;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-move {
+		grid-template-columns: 60px 42px auto !important;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-time {
+		font-size: 0.8rem;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-poi-name {
+		font-size: 0.9rem;
+	}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-summary-numbers {
+		font-size: 0.8rem;
+	}
+
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-name,
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-time {font-size: 1.05rem;}
+
+	/* reset */
+	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__spot[data-v-d0fe148c],
+	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__route-summary[data-v-d0fe148c] {margin:inherit !important;}
+}
