@@ -16,6 +16,16 @@
 }
 /* ============================= */
 
+.printable-bookmarks__plan[data-v-4289eaee] {
+	z-index: 1;
+}
+.printable-bookmarks-schedule__route-summary.shows-map[data-v-1fc94cc0] {
+	margin-top: 0;
+}
+#DAY1 {
+	margin-top: -40px;
+}
+
 .nav_btn {
 	display: flex;
 	flex-direction: row;
@@ -46,8 +56,9 @@
 	border-radius: 3px;
 }
 .nav_btn a:hover,
-.nav_btn a:focus {
-	background: #3d6da3d0;
+.nav_btn a:focus,
+.nav_btn a.active {
+	background: #0c2e55d0;
 }
 
 .plan-detail-page__print-contents .planning-site-header,
@@ -59,6 +70,7 @@
 	width: 98%;
 	max-width: 1024px;
 	margin-top: 60px !important;
+	/* margin-top: 0px !important; */
 }
 
 /* schedule */
@@ -188,15 +200,19 @@
 /* spot */
 .plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__container--left {
 	grid-template-columns: 90px auto;
-	grid-template-rows: 1em auto auto;
+	grid-template-rows: 1.5rem auto auto;
 }
 .plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-pin {
 	filter: saturate(0.8) hue-rotate(30deg) brightness(1.5);
 }
 .plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-stay-time {
-	font-size: 14px;
-	color: #58657a;
+	font-size: 0.9rem;
+	color: #ffffff;
 	font-weight: 500;
+	line-height: 1.5rem;
+	background: #585794;
+	border-radius: 3px;
+	letter-spacing: 1px;
 }
 .plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-info {
 	color: #6363b5;
@@ -323,6 +339,7 @@
 @media only screen and (max-width: 1050px) {
 	.nav_btn a {
 		font-size: 1rem;
+		line-height: 140%;
 	}
 	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__day {
 		font-size: 3rem;
@@ -467,11 +484,15 @@
 	}
 
 	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-name,
-	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-time {font-size: 1.05rem;}
+	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-spot__spot-time {
+		font-size: 1.05rem;
+	}
 
 	/* reset */
 	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__spot[data-v-d0fe148c],
-	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__route-summary[data-v-d0fe148c] {margin:inherit !important;}
+	.printable-bookmarks-detail:not(.shows-preview) .printable-bookmarks-detail__route-summary[data-v-d0fe148c] {
+		margin: inherit !important;
+	}
 }
 @media screen and (max-width: 430px) {
 	.plan-detail-page__print-contents .printable-bookmarks .printable-bookmarks-schedule__route-map {
